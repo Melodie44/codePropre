@@ -1,37 +1,23 @@
 package ex3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Zoo {
 
 	private String nom;
-	private SavaneAfricaine savaneAfricaine;
-	private ZoneCarnivore zoneCarnivore;
-	private FermeReptile fermeReptile;
-	private Aquarium aquarium;
+	private List<Zone> zones = new ArrayList<Zone>();
 	
 	public Zoo(String nom){
 		this.nom = nom;
+		zones.add(new Aquarium());
+		zones.add(new FermeReptile());
+		zones.add(new SavaneAfricaine());
+		zones.add(new Carnivore());
 	}
 	
-	public void addAnimal(String nomAnimal, String typeAnimal, String comportement){
-		if (typeAnimal.equals("MAMMIFERE") && comportement.equals("CARNIVORE")){
-			zoneCarnivore.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("MAMMIFERE") && comportement.equals("HERBIVORE")){
-			savaneAfricaine.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("REPTILE")){
-			fermeReptile.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("POISSON")){
-			aquarium.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-	}
-	
-	public void afficherListeAnimaux(){
-		savaneAfricaine.afficherListeAnimaux();
-		zoneCarnivore.afficherListeAnimaux();
-		fermeReptile.afficherListeAnimaux();
-		aquarium.afficherListeAnimaux();
+	public void addZone(Zone zone) {
+		zones.add(zone);
 	}
 
 	/** Getter for nom
@@ -47,4 +33,13 @@ public class Zoo {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+	
+	public List<Zone> getZones() {
+		return zones;
+	}
+
+	public void setZones(List<Zone> zones) {
+		this.zones = zones;
+	}
+
 }
