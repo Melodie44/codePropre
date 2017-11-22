@@ -3,7 +3,7 @@ package ex3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Zone {
+public abstract class Zone {
 
 	protected List<Animal> animaux = new ArrayList<Animal>();
 	

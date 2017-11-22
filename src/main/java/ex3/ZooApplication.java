@@ -9,6 +9,11 @@ public class ZooApplication {
 		
 		Zoo zoo = new Zoo("Thoiry");
 
+		long nb = zoo.getZones().stream().count();
+		System.out.println(nb);
+		
+		zoo.getZones().stream().forEach(z -> z.afficherListeAnimaux());
+		
 		
 		
 	}
